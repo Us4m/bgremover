@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+</head>
+<body>
+	<h1>Result</h1>
+	{% if error_message %}
+		<p>{{ error_message }}</p>
+	{% else %}
+		<img src="{{ result_url }}" width="500">
+	{% endif %}
+	<br>
+	{% if image_url %}
+		<a href="{% url 'remove_background' %}">Remove Background of Another Image</a>
+	{% else %}
+		<a href="{% url 'change_background' %}">Change Background of Another Image</a>
+	{% endif %}
+</body>
+</html>
