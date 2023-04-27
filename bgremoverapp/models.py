@@ -17,6 +17,11 @@
    
 
 from django.db import models
+import os
+
+# def filepath(request, filename):
+#     old_filename = filename
+#     return os.path.join('media', filename)
 
 class Image(models.Model):
     name = models.CharField(max_length=100)

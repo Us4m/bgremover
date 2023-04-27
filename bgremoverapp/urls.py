@@ -12,5 +12,6 @@ from . import views
 urlpatterns = [
     path('', views.remove_background, name='remove_background'),
     path('change-background/', views.change_background, name='change_background'),
-    path('result/', views.result, name='result'),
+    path('result/', views.result, name='result'),  
+    path('process_image/', views.process_image, name='process_image'),
 ]

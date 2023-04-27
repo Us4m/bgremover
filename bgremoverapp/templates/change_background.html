@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Change Background</title>
+    <meta charset="UTF-8">
+    <title>Change Background</title>
 </head>
 <body>
-	<h1>Change Background</h1>
-	<form method="post" enctype="multipart/form-data">
-		{% csrf_token %}
-		<label for="image">Select an image:</label>
-		<input type="file" name="image" id="image">
-		<br><br>
-		<label for="background">Select a background:</label>
-		<input type="file" name="background" id="background">
-		<br><br>
-		<input type="submit" value="Change Background">
-	</form>
-	{% if image_url %}
-		<h2>Original Image:</h2>
-		<img src="{{ image_url }}" width="500">
-		<h2>New Image with Changed Background:</h2>
-		<img src="{{ new_image_url }}" width="500">
-	{% endif %}
-	<br>
-	<a href="{% url 'remove_background' %}">Remove Background</a>
+    <h1>Change Background</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if original_image %}
+    <h2>Original Image:</h2>
+    <img src="{{ original_image }}" alt="Original Image">
+    {% endif %}
+
+    {% if masked_image %}
+    <h2>Masked Image:</h2>
+    <img src="{{ masked_image }}" alt="Masked Image">
+    {% endif %}
 </body>
-</html>
- 
+</html

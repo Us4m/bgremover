@@ -1,20 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Result</title>
-</head>
-<body>
-	<h1>Result</h1>
-	{% if error_message %}
-		<p>{{ error_message }}</p>
-	{% else %}
-		<img src="{{ result_url }}" width="500">
-	{% endif %}
-	<br>
-	{% if image_url %}
-		<a href="{% url 'remove_background' %}">Remove Background of Another Image</a>
-	{% else %}
-		<a href="{% url 'change_background' %}">Change Background of Another Image</a>
-	{% endif %}
-</body>
-</html>
+
+
+{% block content %}
+  {% if image %}
+    <div class="container">
+      <h1 class="text-center mt-5">Result</h1>
+      <div class="d-flex justify-content-center align-items-center mt-5">
+        <img src="{{ image.masked_image.url }}" alt="Masked Image" class="img-fluid" />
+      </div>
+    </div>
+  {% else %}
+    <p>No image found.</p>
+  {% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+{% endblock %}
