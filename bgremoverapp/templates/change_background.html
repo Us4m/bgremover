@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Change Background</title>
-</head>
-<body>
-    <h1>Change Background</h1>
-
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="image">Upload Image:</label>
-        <input type="file" name="image" id="image">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
-    {% if original_image %}
-    <h2>Original Image:</h2>
-    <img src="{{ original_image }}" alt="Original Image">
-    {% endif %}
-
-    {% if masked_image %}
-    <h2>Masked Image:</h2>
-    <img src="{{ masked_image }}" alt="Masked Image">
-    {% endif %}
-</body>
-</html
+<h2>Result Image</h2>
+<img src="{{ result_image_path }}" alt="Result Image" width="500" height="500" style="border: 1px solid black;">
+<img src="media\result.png" alt="Result Image" width="500" height="500" style="border: 1px solid black;">
+<p>Image path: {{ result_image_path }}</p>

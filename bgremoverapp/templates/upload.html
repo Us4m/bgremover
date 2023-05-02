@@ -1,0 +1,12 @@
+
+  <h2>Upload Images</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="original_image">Original Image:</label>
+    <input type="file" name="original_image" id="original_image">
+    <br><br>
+    <label for="background_image">Background Image:</label>
+    <input type="file" name="background_image" id="background_image">
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
