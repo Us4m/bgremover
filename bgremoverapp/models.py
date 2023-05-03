@@ -19,7 +19,7 @@
 from django.db import models
 import os
 
-class Image(models.Model):
+class Imageee(models.Model):
     name = models.CharField(max_length=100)
     original_image = models.ImageField(upload_to='original/')
     masked_image = models.ImageField(upload_to='masked/')
